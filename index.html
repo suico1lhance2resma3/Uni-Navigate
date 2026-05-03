@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni-Naviagte</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="java.js" defer></script>
+</head>
+<body class="index-page">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo">
+            <a href="loginPage.html">Login</a>
+        </div>
+        <ul>
+            <li><a href="loginPage.html">Campus Navigate</a></li>
+            <li><a target="_blank" href="https://fatima.edu.ph/">OLFU</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Campus Section -->
+    <div class="campus-section">
+        <div class="campus-carousel">
+            <h2>Campus Building</h2>
+            <p>Explore the different buildings on our campus.</p>
+            <div class="carousel">
+                <div class="slide active">
+                    <h3>St. Benedict Hall (Tamaraw)</h3>
+                    <p>Discover the main hall and its classrooms, study spaces, and campus views.</p>
+                    <a href="Tamaraw.html">View Tamaraw</a>
+                </div>
+                <div class="slide">
+                    <h3>Rise Tower</h3>
+                    <p>Explore Rise Tower and its modern facilities, lecture rooms, and student spaces.</p>
+                    <a href="unlock.html">View Rise Tower</a>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-prev">&laquo;</button>
+                    <button type="button" class="carousel-next">&raquo;</button>
+                </div>
+            </div>
+        </div>
+        <div class="campus-navigation">
+            <h2>Campus Navigation</h2>
+            <p>Navigate through the campus with ease using our interactive navigation map.</p>
+            <a href="loginPage.html">Go to Campus Navigate</a>
+        </div>
+    </div>
+
+    <!-- Uni-navi About Section -->
+    <div id="about">        
+        <h2>About</h2>
+        <img src="logo/Uni-Navigate_logo.png" alt="UNI-NAVIGATE Logo" class="about-logo">
+        <pre>UNI-NAVIGATE is a web design project developed by the <b>UNI-Team</b>, a local group specializing in campus and architectural photography, The concept targets to provide a safe and knowledgeable campus experience through the college life with the partnerships to universities, to produce a. website<b>"UNI-NAVIGATE"</b>
+
+            The UNI-NAVIGATE is a website extension through Learning Management System (LMS) , a campus navigation website leaning campus architecture to designated rooms use showcase . The website helps users avoid confusion with schedules, locate specific areas, and navigate the campus more efficiently. Uni-navigate values the safety of the user giving the most information of every building or room user in 
+        </pre>
+    </div>
+
+    <!-- OLFU About Section -->
+    <section id="olfu-about" class="about-section">
+        <div class="logo-container">
+            <img src="logo/olfu-logo.png" alt="Our Lady of Fatima University Logo">
+        </div>
+        <h2>Our Lady of Fatima University</h2>
+        
+        <div class="mission-vision-container">
+            <div class="mission-content">
+                <h3>Mission</h3>
+                <pre>The Our Lady of Fatima University, together with Fatima Medical Science Foundation, Inc., is dedicated to the improvement of man as man through the holistic formation of individuals imbued with knowledge, skills, and virtues.</pre>
+            </div>
+            <div class="vision-content">
+                <h3>Vision</h3>
+                <pre>A premier inclusive university of choice aspiring to improve man as man by developing individuals through a legacy of excellent education and compassionate value formation.</pre>
+            </div>
+        </div>
+
+        <div class="core-values-container">
+            <h3>Core Values</h3>
+            <pre><b>R – Respect
+
+I –  Integrity
+
+S – Service
+
+E – Excellence</b></pre>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-logo">
+                <img src="logo/Uni-Navigate_logo.png" alt="UNI-NAVIGATE Logo">
+            </div>
+            <div class="contact-info">
+                <p>Have questions or feedback? Reach out to us!</p>
+                <p><strong>Email:</strong> lrsuico7035val@student.fatima.edu.ph</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2026 UNI-NAVIGATE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.campus-carousel .slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        document.querySelector('.carousel-next').addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+        document.querySelector('.carousel-prev').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+    </script>
+</body>
+</html>
