@@ -6,7 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body> 
+<body class="login-page"> 
     <nav>
         <ul>
             <li><a href="Index.html">Home</a></li>
@@ -19,20 +19,24 @@
 
     <div class="login-container">
         <h1>Login to Uni-Navigate</h1>
+        <div class="logo-container">
+            <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo" class="login-logo">
+            <img src="logo/olfu-logo.png" alt="OLFU Logo" class="login-olfu-logo">
+        </div>
         <form action="loginPage.html" method="post">
-            <div class="logo-container">
-                <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo">
-            </div>
-            <div>
+            <div class="input-group">
                 <label for="username">Username:</label><br>
                 <input type="text" id="username" name="username"><br><br>
             </div>
-            <div>
+            <div class="input-group">
                 <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password"><br><br>
             </div>
             <input type="submit" value="Login">
         </form> 
+    </div>
+    <div>
+        <img src="/image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance" class="background">
     </div>
 </body>
 </html>

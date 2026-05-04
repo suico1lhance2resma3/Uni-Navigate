@@ -5,13 +5,17 @@ body.index-page {
 }
 
 .campus-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 24px;
+    position: relative;
     max-width: 1200px;
     margin: 40px auto;
+    background: linear-gradient(135deg, #a5d6a7 0%, #c8e6c9 100%);
+    border-radius: 12px;
+    padding: 40px 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .campus-navigation,
@@ -20,15 +24,26 @@ body.index-page {
 }
 
 .campus-carousel {
-    flex: 1 1 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     order: 1;
 }
 
 .campus-navigation {
-    flex: 1 1 60%;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     order: 2;
     margin: 0;
     text-align: left;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .campus-navigation a {
@@ -46,10 +61,10 @@ body.index-page {
 }
 
 .campus-carousel {
-    max-width: 840px;
+    max-width: 500px;
     margin: 0;
     padding: 24px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.0);
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
@@ -342,6 +357,67 @@ nav a:hover {
     font-weight: bold;
     color: #333;
 }
+.feedback-form {
+    flex: 1;
+    min-width: 300px;
+    margin-left: auto;
+}
+
+.feedback-form h2 {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.feedback-form p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.feedback-form form div {
+    margin-bottom: 16px;
+}
+
+.feedback-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.feedback-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: rgb(95, 77, 77);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.feedback-form input[type="submit"]:hover {
+    background-color: #9aa045;
+    color: #fff;
+}
 
 /* Footer */
 footer {
@@ -363,23 +439,41 @@ body.login-page {
     font-size: 14px;
     background-color: #FEFFED;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
 }
 .login-container {
-    background-color: #ffffff;
+    background-color: #10e41bf1;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
 }
 .login-container h1 {
     margin-bottom: 24px;
     font-size: 1.8rem;
     color: #333;
+}
+.login-container .logo-container {
+    margin-bottom: 30px;
+}
+.login-container .logo-container img {
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
