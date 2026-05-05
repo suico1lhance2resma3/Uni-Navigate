@@ -9,11 +9,10 @@
 <body class="login-page"> 
     <nav>
         <ul>
-
-            <li><a href="loginPage.html">Campus Navigate</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="https://fatima.edu.ph/">OLFU</a></li>
-            <li><a href="index.html/#about">About</a></li>
-            <li><a href="index.html/#contact">Contact</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -23,20 +22,38 @@
             <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo" class="login-logo">
             <img src="logo/olfu-logo.png" alt="OLFU Logo" class="login-olfu-logo">
         </div>
-        <form action="loginPage.html" method="post">
+        <form id="loginForm">
             <div class="input-group">
                 <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username"><br><br>
+                <input type="text" id="username" name="username" required><br><br>
             </div>
             <div class="input-group">
                 <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password" required><br><br>
             </div>
             <input type="submit" value="Login">
         </form> 
     </div>
-    <div>
-        <img src="/image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance" class="background">
-    </div>
+
+    <img src="image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance" class="background">
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation (in real app, this would be server-side)
+            if (username && password) {
+                // Set session
+                sessionStorage.setItem('userLoggedIn', 'true');
+                sessionStorage.setItem('username', username);
+                // Redirect to Home
+                window.location.href = 'Home.html';
+            } else {
+                alert('Please enter username and password');
+            }
+        });
+    </script>
 </body>
 </html>

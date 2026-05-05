@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uni-Naviagte</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="java.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body class="index-page">
     <!-- Navigation -->
@@ -24,30 +24,10 @@
 
     <!-- Campus Section -->
     <div class="campus-section">
-        <div class="campus-carousel">
-            <h2>Campus Building</h2>
-            <p>Explore the different buildings on our campus.</p>
-            <div class="carousel">
-                <div class="slide active">
-                    <h3>St. Benedict Hall (Tamaraw)</h3>
-                    <p>Discover the main hall and its classrooms, study spaces, and campus views.</p>
-                    <a href="Tamaraw.html">View Tamaraw</a>
-                </div>
-                <div class="slide">
-                    <h3>Rise Tower</h3>
-                    <p>Explore Rise Tower and its modern facilities, lecture rooms, and student spaces.</p>
-                    <a href="unlock.html">View Rise Tower</a>
-                </div>
-                <div class="carousel-controls">
-                    <button type="button" class="carousel-prev">&laquo;</button>
-                    <button type="button" class="carousel-next">&raquo;</button>
-                </div>
-            </div>
-        </div>
         <div class="campus-navigation">
             <h2>Campus Navigation</h2>
             <p>Navigate through the campus with ease using our interactive navigation map.</p>
-            <a href="loginPage.html">Go to Campus Navigate</a>
+            <a href="loginPage.html" onclick="preventHomeAccess(event)">Go to Campus Navigate</a>
         </div>
     </div>
 
@@ -127,10 +107,15 @@ E – Excellence</b></pre>
 
     <!-- footer -->
     <footer>
-        <p>&copy; 2026 UNI-NAVIGATE. All rights reserved.</p>
+        <p>&copy; for academic purposes. 2026 UNI-NAVIGATE. All rights reserved.</p>
     </footer>
 
     <script>
+        function preventHomeAccess(event) {
+            // Allow natural navigation - actual protection happens on Home.html
+            // This link just goes to login page
+        }
+
         const slides = document.querySelectorAll('.campus-carousel .slide');
         let currentSlide = 0;
 

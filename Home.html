@@ -3,25 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home - Campus Navigation</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body class="home-page">
     <nav>
         <ul>
-            <li><a href="loginPage.html">Login</a></li>
-            <li><a href="loginPage.html">Campus Navigate</a></li>
-            <li><a href="https://fatima.edu.ph/">OLFU</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="https://fatima.edu.ph/">OLFU</a></li>
+            <li id="logout-btn"><a href="index.html">Logout</a></li>
         </ul>
     </nav>
+
     <div>
         <h1>Campus Navigation</h1>
         <p>Navigate through the campus with ease using our interactive navigation map.</p>
-        <h2.>Campus Map</h2>
     </div>
+
+    <!-- Ground Floor Section -->
+    <div class="ground-floor-section">
+        <h2>Ground Floor - Rooms</h2>
+        <div class="rooms-grid">
+            <!-- Comlab 1 -->
+            <div class="room-card" data-room="comlab1">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>Comlab 1 (CL1)</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Comlab 1">
+                </div>
+            </div>
+
+            <!-- Comlab 2 -->
+            <div class="room-card" data-room="comlab2">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>Comlab 2 (CL2)</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab2_door.jpg" alt="Comlab 2">
+                </div>
+            </div>
+
+            <!-- Maclab -->
+            <div class="room-card" data-room="maclab">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>Maclab</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab">
+                </div>
+            </div>
+
+            <!-- PT Simulation Room 1 -->
+            <div class="room-card" data-room="pt1">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>PT Simulation 1</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_simulation1_room_door.jpg" alt="PT Sim 1">
+                </div>
+            </div>
+
+            <!-- PT Simulation Room 2 -->
+            <div class="room-card" data-room="pt2">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>PT Simulation 2</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_Simulation_room2_door.jpg" alt="PT Sim 2">
+                </div>
+            </div>
+
+            <!-- Comlab 4 -->
+            <div class="room-card" data-room="comlab4">
+                <div class="room-header">
+                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                    <h3>Comlab 4 (CL4)</h3>
+                </div>
+                <div class="room-image-container">
+                    <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab4_door.jpg" alt="Comlab 4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Room Details -->
+    <div id="roomModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalRoomTitle">Room Details</h2>
+                <button class="close-modal" onclick="closeRoomModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="innerImageGallery" class="inner-image-gallery"></div>
+                <table id="scheduleTable" class="schedule-table-small">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Day</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 UNI-NAVIGATE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        function checkLogin() {
+            const isLoggedIn = sessionStorage.getItem('userLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'loginPage.html';
+            }
+        }
+
+        // Check login on page load
+        checkLogin();
+
+        // Room data with inner images
+        const roomData = {
+            comlab1: {
+                title: 'Computer Lab 1 (CL1)',
+                innerImages: ['image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg'],
+                courses: ['BSEMC-1-Y2-1', 'BSIT-1-Y2-1', 'BSCS-1-Y2-1']
+            },
+            comlab2: {
+                title: 'Computer Lab 2 (CL2)',
+                innerImages: ['image/TAMARAW_BUILDING/Ground_Floor/Comlab2_door.jpg'],
+                courses: ['BSEMC-1-Y2-1', 'BSIT-1-Y2-1', 'BSCS-1-Y2-1']
+            },
+            maclab: {
+                title: 'Maclab',
+                innerImages: ['image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg'],
+                courses: ['BSEMC-1-Y2-1', 'BSIT-1-Y2-1', 'BSCS-1-Y2-1']
+            },
+            pt1: {
+                title: 'PT Simulation Room 1',
+                innerImages: ['image/TAMARAW_BUILDING/Ground_Floor/PT_simulation1_room_door.jpg'],
+                courses: ['BSPT-1-Y2-1', 'BSPT-1-Y2-2', 'BSPT-1-Y2-3']
+            },
+            pt2: {
+                title: 'PT Simulation Room 2',
+                innerImages: ['image/TAMARAW_BUILDING/Ground_Floor/PT_Simulation_room2_door.jpg'],
+                courses: ['BSPT-1-Y2-1', 'BSPT-1-Y2-2', 'BSPT-1-Y2-3']
+            },
+            comlab4: {
+                title: 'Computer Lab 4 (CL4)',
+                innerImages: [
+                    'image/TAMARAW_BUILDING/Ground_Floor/Comlab4_door.jpg',
+                    'image/TAMARAW_BUILDING/Ground_Floor/Comlab4_inner1.jpg'
+                ],
+                courses: ['BSEMC-1-Y2-1', 'BSIT-1-Y2-1', 'BSCS-1-Y2-1']
+            }
+        };
+
+        // Generate schedule for a course
+        function generateSchedule(courses) {
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const times = ['7:00 - 8:00', '8:00 - 9:00', '9:00 - 10:00', '10:00 - 11:00', '11:00 - 12:00', 
+                          '12:00 - 1:00', '1:00 - 2:00', '2:00 - 3:00', '3:00 - 4:00', '4:00 - 5:00', '5:00 - 6:00'];
+            
+            const schedule = [];
+            courses.forEach(course => {
+                days.forEach((day, dayIndex) => {
+                    const timeIndex = (dayIndex + Math.random() * times.length) % times.length;
+                    schedule.push({
+                        course: course,
+                        day: day,
+                        time: times[Math.floor(timeIndex)]
+                    });
+                });
+            });
+            return schedule;
+        }
+
+        // Open room modal
+        function openRoomModal(roomKey) {
+            const room = roomData[roomKey];
+            if (!room) return;
+
+            document.getElementById('modalRoomTitle').textContent = room.title;
+            
+            // Load inner images or show unavailable
+            const gallery = document.getElementById('innerImageGallery');
+            gallery.innerHTML = '';
+            
+            if (room.innerImages && room.innerImages.length > 0) {
+                room.innerImages.forEach(img => {
+                    const div = document.createElement('div');
+                    div.className = 'inner-image-item';
+                    div.innerHTML = `<img src="${img}" alt="Room image">`;
+                    gallery.appendChild(div);
+                });
+            } else {
+                const div = document.createElement('div');
+                div.className = 'unavailable-message';
+                div.innerHTML = '<p>No images available for this room</p>';
+                gallery.appendChild(div);
+            }
+
+            // Load schedule
+            const schedule = generateSchedule(room.courses);
+            const scheduleBody = document.getElementById('scheduleBody');
+            scheduleBody.innerHTML = '';
+            schedule.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item.course}</td><td>${item.day}</td><td>${item.time}</td>`;
+                scheduleBody.appendChild(row);
+            });
+
+            document.getElementById('roomModal').classList.add('active');
+        }
+
+        // Close room modal
+        function closeRoomModal() {
+            document.getElementById('roomModal').classList.remove('active');
+        }
+
+        // Add click listeners to room cards
+        document.querySelectorAll('.room-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const roomKey = this.getAttribute('data-room');
+                openRoomModal(roomKey);
+            });
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('roomModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            sessionStorage.removeItem('userLoggedIn');
+        });
+    </script>
 </body>
 
 </html>
