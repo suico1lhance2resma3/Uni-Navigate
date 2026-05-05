@@ -11,7 +11,7 @@ body.index-page {
     background: linear-gradient(135deg, #a5d6a7 0%, #c8e6c9 100%);
     border-radius: 12px;
     padding: 40px 20px;
-    min-height: 200px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,20 +24,24 @@ body.index-page {
 }
 
 .campus-carousel {
-    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    order: 1;
 }
 
 .campus-navigation {
-    position: relative;
-    right: auto;
-    top: auto;
+    position: absolute;
+    right: 40px;
+    top: 40px;
     transform: none;
     order: 2;
-    margin: 0 auto;
-    text-align: center;
+    margin: 0;
+    text-align: left;
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px 40px;
+    padding: 30px 25px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -537,70 +541,12 @@ nav {
 }
 
 .floor-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    position: relative;
-    width: 100%;
-    padding: 20px;
-}
-
-.rooms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    padding: 20px;
-}
-
-.room-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #e0e0e0;
-}
-
-.room-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-color: #007bff;
-}
-
-.room-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.schedule-icon-img {
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-}
-
-.room-header h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-    flex: 1;
-}
-
-.room-image-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.room-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    min-height: 500px;
 }
 
 .vertical-path-line {
@@ -739,8 +685,7 @@ nav {
 
 .modal-body {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
 .inner-images {
@@ -756,7 +701,6 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin-bottom: 20px;
 }
 
 .inner-image-item {
@@ -769,16 +713,6 @@ nav {
     width: 100%;
     height: 150px;
     object-fit: cover;
-}
-
-.unavailable-message {
-    padding: 30px;
-    text-align: center;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    color: #666;
-    font-size: 1rem;
-    margin-bottom: 20px;
 }
 
 .room-schedule {
@@ -817,34 +751,6 @@ nav {
     background-color: #f0f0f0;
 }
 
-.schedule-table-small {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-    margin-top: 10px;
-}
-
-.schedule-table-small th,
-.schedule-table-small td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.schedule-table-small th {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-}
-
-.schedule-table-small tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.schedule-table-small tr:hover {
-    background-color: #f0f0f0;
-}
-
 /* Home page */
 body.home-page {
     font-family: 'Open Sans', Arial, sans-serif;
@@ -858,4 +764,122 @@ body.home-page {
     justify-content: center;
     min-height: 100vh;
     text-align: center;
+}
+
+/* Rooms Container Layout */
+.rooms-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    padding: 20px;
+}
+
+.rooms-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rooms-column.right-side {
+    order: 1;
+}
+
+.rooms-column.left-side {
+    order: 2;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e0e0e0;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.room-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.schedule-icon-img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.room-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    flex: 1;
+}
+
+.room-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.room-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Schedule Table Grid */
+.schedule-table-grid {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    margin-top: 15px;
+}
+
+.schedule-table-grid th,
+.schedule-table-grid td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+}
+
+.schedule-table-grid th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.schedule-table-grid .time-cell {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    min-width: 60px;
+}
+
+.schedule-table-grid tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.schedule-table-grid tr:hover {
+    background-color: #f0f0f0;
+}
+
+.unavailable-message {
+    padding: 30px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
