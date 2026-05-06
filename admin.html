@@ -4,19 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="admin-page">
     <nav>
         <ul>
-            <li><a href="loginPage.html">Login</a></li>
-            <li><a href="loginPage.html">Campus Navigate</a></li>
+            <li><a href="#" id="logout-btn" class="logout-link">Logout</a></li>
+            <li><a href="Home.html">Campus Navigate</a></li>
             <li><a href="https://fatima.edu.ph/">OLFU</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
+    <div class="sidebar">
+        <ul>
+            <li><button>Food</button></li>
+            <li><button>Vacant Rooms</button></li>
+            <li><button>Building Information</button></li>
+            <li><button>Admin Panel</button></li>
+        </ul>
+    </div>
     <div>
         <h1>Admin Page</h1>
         <p>This is the admin page. Only authorized users can access this page.</p>
     </div>
+    <section class="Manageprofile">
+    <div class="profile ">
+        <p>Coures: BSEMC - 1 - Y2 - 1</p>
+        <button>Change profile</button>
+    </div>
+    </section>
+    <section class="analytic">
+        <div class="analyticheader">
+            <h2>Analytic</h2>
+            <p>Here you can view the analytics of the website.</p>
+            <div class="top user">
+                <p>Top User</p>
+                <p>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</p>
+                <!-- Add graphic or data here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="readfeedback">
+        <div class="feedback">
+            <h2>Feedback</h2>
+            <p>Here you can read the feedback from users.</p>
+        </div>
+        <div class="feedbackuser">
+            <p>Sean Valenzuelano : I love this website! It helps me navigate the campus easily.</p>
+            <p>Jimboy Dipinili: Nawawala po yung cellphone ko 😭</p>
+            <p>Kumang Barakuda: I wish there were more features, but overall it's great!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNI-NAVIGATE Admin Panel. All rights reserved.</p>
+    </footer>
+</body>
 </html>

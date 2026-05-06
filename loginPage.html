@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body class="login-page"> 
     <nav>
@@ -32,28 +33,14 @@
                 <input type="password" id="password" name="password" required><br><br>
             </div>
             <input type="submit" value="Login">
-        </form> 
+        </form>
+        <p>for Demo Account</p> 
+        <p><b>User Account:</b> <i>use.123@gmail.com / 123456 </i></p>
+        <p><b>Admin Account:</b> <i>admin.123@gmail.com / 123456 </i></p>
+        <p><b>Super Admin Account:</b> <i>superadmin.123@gmail.com / 123456 </i></p>
     </div>
 
     <img src="image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance" class="background">
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // Simple validation (in real app, this would be server-side)
-            if (username && password) {
-                // Set session
-                sessionStorage.setItem('userLoggedIn', 'true');
-                sessionStorage.setItem('username', username);
-                // Redirect to Home
-                window.location.href = 'Home.html';
-            } else {
-                alert('Please enter username and password');
-            }
-        });
-    </script>
 </body>
 </html>

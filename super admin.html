@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="superadmin-page">
+    <nav>
+        <ul>
+            <li><a href="#" id="logout-btn" class="logout-link">Logout</a></li>
+            <li><a href="Home.html">Campus Navigate</a></li>
+            <li><a href="https://fatima.edu.ph/">OLFU</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar">
+        <ul>
+            <li><button>Food</button></li>
+            <li><button>Vacant Rooms</button></li>
+            <li><button>Building Information</button></li>
+            <li><button>Super Admin Panel</button></li>
+        </ul>
+    </div>
+    <div>
+        <h1> Super Admin Page</h1>
+        <p>This is the Super admin page. Only authorized users can access this page.</p>
+    </div>
+    <section class="Manageprofile">
+    <div class="profile ">
+        <p>Coures: BSEMC - 1 - Y2 - 1</p>
+        <button>Change profile</button>
+        <form>
+            <label for="newPassword">New Password:</label><br>
+            <input type="password" id="newPassword" name="newPassword" required><br><br>
+            <input type="submit" value="Change Password">
+        </form>
+        
+    </div>
+    </section>
+
+    <section class="systemlog">
+        <div class="logheader">
+            <h2>System Log</h2>
+            <p>Here you can view the system logs.</p>
+        </div>
+        <div class="loguser">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-06-01 10:00:00</td>
+                        <td>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</td>
+                        <td>Logged in</td>
+                    </tr>
+                    <tr>
+                        <td>2024-06-01 10:00:00</td>
+                        <td>Jimboy Dipinili | BSEMC - 1 - Y2 - 1</td>
+                        <td>Logged in</td>
+                    </tr>
+                    <tr>
+                        <td>2024-06-01 10:00:00</td>
+                        <td>Kumag Barakuda | BSEMC - 1 - Y2 - 1</td>
+                        <td>Logged in</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="Reports">
+        <div class="reportheader">
+            <h2>Reports</h2>
+            <p>Here you can view the reports from developers.</p>
+        </div>
+        <div class="reportuser">
+            <p>Suico | Developer: The latest update has resolved the issues reported by users.</p>
+            <p>Labao | Developer: I have completed the new feature and it is ready for testing.</p>
+            <p>Valenzuelano | Developer: I am currently working on improving the user interface for better user experience.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNI-NAVIGATE Super Admin Panel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
