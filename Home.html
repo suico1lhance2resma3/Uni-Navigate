@@ -10,101 +10,176 @@
 
 <body class="home-page">
     <nav>
+        <div class="nav-left">
+            <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo">
+            <a href="#" id="logout-btn" class="logout-link">Logout</a>
+        </div>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="Home.html">Campus Navigate</a></li>
+            <li><a href="https://fatima.edu.ph/">OLFU</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="https://fatima.edu.ph/">OLFU</a></li>
-            <li><a href="#" id="logout-btn" class="logout-link">Logout</a></li>
         </ul>
     </nav>
 
-    <div class="welcome-banner">
-        <h1>Campus Navigation</h1>
-        <p id="userGreeting"></p>
-        <p>Navigate through the campus with ease using our interactive navigation map.</p>
-    </div>
-    <div class="sidebar">
-        <ul>
-            <li><button>Food</button></li>
-            <li><button>Vacant Rooms</button></li>
-            <li><button>Building Information</button></li>
-        </ul>
-    </div>
-    <!-- Ground Floor Section -->
-    <div class="ground-floor-section">
-        <h2>Ground Floor - Rooms</h2>
-        <div class="rooms-container">
-            <div class="rooms-column right-side">
-                <!-- Comlab 1 - Right Side -->
-                <div class="room-card" data-room="comlab1">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>Comlab 1 (CL1)</h3>
-                    </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Comlab 1">
-                    </div>
-                </div>
-
-                <!-- Comlab 2 - Right Side -->
-                <div class="room-card" data-room="comlab2">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>Comlab 2 (CL2)</h3>
-                    </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab2_door.jpg" alt="Comlab 2">
-                    </div>
-                </div>
-
-                <!-- Maclab - Right Side -->
-                <div class="room-card" data-room="maclab">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>Maclab</h3>
-                    </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab">
-                    </div>
-                </div>
-
-                <!-- PT Simulation Room 1 - Right Side -->
-                <div class="room-card" data-room="pt1">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>PT Simulation 1</h3>
-                    </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_simulation1_room_door.jpg" alt="PT Sim 1">
-                    </div>
-                </div>
-
-                <!-- PT Simulation Room 2 - Right Side -->
-                <div class="room-card" data-room="pt2">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>PT Simulation 2</h3>
-                    </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_Simulation_room2_door.jpg" alt="PT Sim 2">
-                    </div>
-                </div>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="icon/sidebar-icon.png" alt="Sidebar Icon">
+                <span>Uni-Navigate</span>
             </div>
+            <button id="filterFoodBtn" class="sidebar-button"><img src="icon/food-icon.png" alt="Food" style="width:20px; height:20px;"> Food</button>
+            <button id="filterVacantBtn" class="sidebar-button">Vacant Rooms</button>
+            <button id="filterBuildingBtn" class="sidebar-button"><img src="icon/building-icon png.png" alt="Building" style="width:20px; height:20px;"> Building Information</button>
+            <button id="showAllBtn" class="sidebar-button">Show All Rooms</button>
+        </aside>
+        <main class="home-main">
+            <section class="welcome-banner">
+                <div>
+                    <h1>Campus Navigation</h1>
+                    <p id="userGreeting"></p>
+                    <p>Navigate through the campus with ease using our interactive navigation map.</p>
+                </div>
+            </section>
 
-            <div class="rooms-column left-side">
-                <!-- Comlab 4 - Left Side -->
-                <div class="room-card" data-room="comlab4">
-                    <div class="room-header">
-                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
-                        <h3>Comlab 4 (CL4)</h3>
+            <section class="room-panel">
+                <div class="room-panel-header">
+                    <div>
+                        <h2 id="floorTitle">Ground Floor Rooms</h2>
+                        <p class="room-panel-subtitle">Tap any room to view schedule and inner layout.</p>
                     </div>
-                    <div class="room-image-container">
-                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab4_door.jpg" alt="Comlab 4">
+                    <button id="nextFloorBtn" class="primary-button">Go to 5th Floor</button>
+                </div>
+
+                <div id="roomAreas">
+                    <div class="floor-view floor-ground">
+                        <h3 class="floor-label">Ground Floor</h3>
+                        <div class="rooms-container">
+                            <div class="rooms-column right-side">
+                                <div class="room-card" data-room="comlab1" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>Comlab 1 (CL1)</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Comlab 1">
+                                    </div>
+                                </div>
+
+                                <div class="room-card" data-room="comlab2" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>Comlab 2 (CL2)</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab2_door.jpg" alt="Comlab 2">
+                                    </div>
+                                </div>
+
+                                <div class="room-card" data-room="maclab" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>Maclab</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab">
+                                    </div>
+                                </div>
+
+                                <div class="room-card" data-room="pt1" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>PT Simulation 1</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_simulation1_room_door.jpg" alt="PT Sim 1">
+                                    </div>
+                                </div>
+
+                                <div class="room-card" data-room="pt2" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>PT Simulation 2</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/PT_Simulation_room2_door.jpg" alt="PT Sim 2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rooms-column left-side">
+                                <div class="room-card" data-room="comlab4" data-floor="ground">
+                                    <div class="room-header">
+                                        <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                        <h3>Comlab 4 (CL4)</h3>
+                                    </div>
+                                    <div class="room-image-container">
+                                        <img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab4_door.jpg" alt="Comlab 4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floor-view floor-fifth hidden">
+                        <h3 class="floor-label">5th Floor</h3>
+                        <div class="rooms-container grid">
+                            <div class="room-card" data-room="501" data-floor="5th">
+                                <div class="room-header">
+                                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                    <h3>Room 501</h3>
+                                </div>
+                                <div class="room-image-container">
+                                    <img src="image/TAMARAW_BUILDING/5TH_FLOOR/501_door.jpg" alt="Room 501">
+                                </div>
+                            </div>
+
+                            <div class="room-card" data-room="502" data-floor="5th">
+                                <div class="room-header">
+                                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                    <h3>Room 502</h3>
+                                </div>
+                                <div class="room-image-container">
+                                    <img src="image/TAMARAW_BUILDING/5TH_FLOOR/502_door.jpg" alt="Room 502">
+                                </div>
+                            </div>
+
+                            <div class="room-card" data-room="503" data-floor="5th">
+                                <div class="room-header">
+                                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                    <h3>Room 503</h3>
+                                </div>
+                                <div class="room-image-container">
+                                    <img src="image/TAMARAW_BUILDING/5TH_FLOOR/503_MusicRoom.jpg" alt="Room 503">
+                                </div>
+                            </div>
+
+                            <div class="room-card" data-room="504" data-floor="5th">
+                                <div class="room-header">
+                                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                    <h3>Room 504</h3>
+                                </div>
+                                <div class="room-image-container">
+                                    <img src="image/TAMARAW_BUILDING/5TH_FLOOR/504-inner.jpg" alt="Room 504">
+                                </div>
+                            </div>
+
+                            <div class="room-card" data-room="505" data-floor="5th">
+                                <div class="room-header">
+                                    <img src="icon/schedule-icon.png" alt="Schedule" class="schedule-icon-img">
+                                    <h3>Room 505</h3>
+                                </div>
+                                <div class="room-image-container no-room-image">
+                                    <span>No image available</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div id="homeSecondaryContent" class="home-secondary-content"></div>
+            </section>
+        </main>
     </div>
 
     <!-- Modal for Room Details -->
@@ -151,7 +226,6 @@
         // Check login on page load
         checkLogin();
 
-        // Room data with inner images
         const roomData = {
             comlab1: {
                 title: 'Computer Lab 1 (CL1)',
@@ -185,10 +259,118 @@
                     'image/TAMARAW_BUILDING/Ground_Floor/Comlab4_inner1.jpg'
                 ],
                 courses: ['BSEMC-1-Y2-1', 'BSIT-1-Y2-1', 'BSCS-1-Y2-1']
+            },
+            501: {
+                title: 'Room 501',
+                innerImages: [
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/501_inner.jpg',
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/501_inner2.jpg'
+                ],
+                courses: ['BSEMC-5-Y1-1', 'BSIT-5-Y1-1', 'BSCS-5-Y1-1']
+            },
+            502: {
+                title: 'Room 502',
+                innerImages: [
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/502_inner.jpg',
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/502_inner (2).jpg'
+                ],
+                courses: ['BSEMC-5-Y1-1', 'BSIT-5-Y1-1', 'BSCS-5-Y1-1']
+            },
+            503: {
+                title: 'Room 503',
+                innerImages: [
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/503_inner.jpg',
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/503_inner (2).jpg',
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/503_inner (3).jpg'
+                ],
+                courses: ['BSEMC-5-Y1-1', 'BSIT-5-Y1-1', 'BSCS-5-Y1-1']
+            },
+            504: {
+                title: 'Room 504',
+                innerImages: [
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/504_inner.jpg',
+                    'image/TAMARAW_BUILDING/5TH_FLOOR/504_inner (2).jpg'
+                ],
+                courses: ['BSEMC-5-Y1-1', 'BSIT-5-Y1-1', 'BSCS-5-Y1-1']
+            },
+            505: {
+                title: 'Room 505',
+                innerImages: [],
+                courses: ['BSEMC-5-Y1-1', 'BSIT-5-Y1-1', 'BSCS-5-Y1-1']
             }
         };
 
-        // Generate schedule grid (days as columns, times as rows)
+        const roomCards = document.querySelectorAll('.room-card');
+        const floorViews = document.querySelectorAll('.floor-view');
+        const homeSecondaryContent = document.getElementById('homeSecondaryContent');
+        const floorTitle = document.getElementById('floorTitle');
+        const nextFloorBtn = document.getElementById('nextFloorBtn');
+        let currentFloor = 'ground';
+
+        function setFloor(floor) {
+            currentFloor = floor;
+            roomCards.forEach(card => card.style.display = '');
+            floorViews.forEach(view => {
+                if (view.classList.contains(`floor-${floor}`)) {
+                    view.classList.remove('hidden');
+                } else {
+                    view.classList.add('hidden');
+                }
+            });
+            homeSecondaryContent.classList.remove('visible');
+            homeSecondaryContent.innerHTML = '';
+            floorTitle.textContent = floor === 'ground' ? 'Ground Floor Rooms' : '5th Floor Rooms';
+            nextFloorBtn.textContent = floor === 'ground' ? 'Go to 5th Floor' : 'Back to Ground Floor';
+        }
+
+        function showSecondaryContent(contentHtml) {
+            floorViews.forEach(view => view.classList.add('hidden'));
+            homeSecondaryContent.innerHTML = contentHtml;
+            homeSecondaryContent.classList.add('visible');
+        }
+
+        function showFoodShowcase() {
+            showSecondaryContent(`
+                <h3>Food Showcase</h3>
+                <div class="info-grid">
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_caten.jpg" alt="Food"><p>Campus dining and food options.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_Kaliham.jpg" alt="Food"><p>Food feature layout for campus visitors.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Tam_back_food.jpg" alt="Food"><p>Comfortable dining spaces near campus buildings.</p></div>
+                </div>
+            `);
+        }
+
+        function showBuildingInfo() {
+            showSecondaryContent(`
+                <h3>Building Information</h3>
+                <div class="info-grid">
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance"><p>Main entrance and facility overview.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/Tam_5th_hallway.jpg" alt="5th Floor Hallway"><p>Hallway and room layout for the 5th floor.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Ground Floor"><p>Ground floor building view.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab"><p>Academic spaces and labs.</p></div>
+                    <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/501_door.jpg" alt="5th Floor Room"><p>Sample room door from the 5th floor.</p></div>
+                </div>
+            `);
+        }
+
+        function showVacantRooms() {
+            setFloor('fifth');
+            floorViews.forEach(view => {
+                if (view.classList.contains('floor-fifth')) {
+                    view.classList.remove('hidden');
+                    view.querySelectorAll('.room-card').forEach(card => {
+                        card.style.display = ['503', '505'].includes(card.dataset.room) ? '' : 'none';
+                    });
+                } else {
+                    view.classList.add('hidden');
+                }
+            });
+        }
+
+        function toggleFloor() {
+            setFloor(currentFloor === 'ground' ? 'fifth' : 'ground');
+        }
+
         function generateScheduleGrid(courses) {
             const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const times = [];
@@ -196,10 +378,9 @@
                 const startTime = hour > 12 ? (hour - 12) + 'pm' : (hour === 12 ? '12pm' : hour + 'am');
                 const endHour = hour + 1;
                 const endTime = endHour > 12 ? (endHour - 12) + 'pm' : (endHour === 12 ? '12pm' : endHour + 'am');
-                times.push(startTime + '-' + endTime);
+                times.push(`${startTime}-${endTime}`);
             }
 
-            // Create a schedule grid: [time][day] = course
             const scheduleGrid = {};
             times.forEach(time => {
                 scheduleGrid[time] = {};
@@ -208,7 +389,6 @@
                 });
             });
 
-            // Randomly assign courses to time slots
             courses.forEach(course => {
                 for (let i = 0; i < 3; i++) {
                     const randomTime = times[Math.floor(Math.random() * times.length)];
@@ -222,17 +402,14 @@
             return { times, scheduleGrid };
         }
 
-        // Open room modal
         function openRoomModal(roomKey) {
             const room = roomData[roomKey];
             if (!room) return;
 
             document.getElementById('modalRoomTitle').textContent = room.title;
-            
-            // Load inner images or show unavailable
             const gallery = document.getElementById('innerImageGallery');
             gallery.innerHTML = '';
-            
+
             if (room.innerImages && room.innerImages.length > 0) {
                 room.innerImages.forEach(img => {
                     const div = document.createElement('div');
@@ -243,54 +420,55 @@
             } else {
                 const div = document.createElement('div');
                 div.className = 'unavailable-message';
-                div.innerHTML = '<p>No images available for this room</p>';
+                div.innerHTML = '<p>Unavailable</p>';
                 gallery.appendChild(div);
             }
 
-            // Generate and load schedule grid
             const { times, scheduleGrid } = generateScheduleGrid(room.courses);
             const scheduleBody = document.getElementById('scheduleBody');
             scheduleBody.innerHTML = '';
-            
+
             times.forEach(time => {
                 const row = document.createElement('tr');
                 const timeCell = document.createElement('td');
                 timeCell.textContent = time;
                 timeCell.className = 'time-cell';
                 row.appendChild(timeCell);
-                
                 ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].forEach(day => {
                     const cell = document.createElement('td');
                     cell.textContent = scheduleGrid[time][day] || '-';
                     row.appendChild(cell);
                 });
-                
                 scheduleBody.appendChild(row);
             });
 
             document.getElementById('roomModal').classList.add('active');
         }
 
-        // Close room modal
         function closeRoomModal() {
             document.getElementById('roomModal').classList.remove('active');
         }
 
-        // Add click listeners to room cards
-        document.querySelectorAll('.room-card').forEach(card => {
+        roomCards.forEach(card => {
             card.addEventListener('click', function() {
-                const roomKey = this.getAttribute('data-room');
-                openRoomModal(roomKey);
+                openRoomModal(this.getAttribute('data-room'));
             });
         });
 
-        // Close modal when clicking outside
+        document.getElementById('nextFloorBtn').addEventListener('click', toggleFloor);
+        document.getElementById('filterFoodBtn').addEventListener('click', showFoodShowcase);
+        document.getElementById('filterBuildingBtn').addEventListener('click', showBuildingInfo);
+        document.getElementById('filterVacantBtn').addEventListener('click', showVacantRooms);
+        document.getElementById('showAllBtn').addEventListener('click', () => setFloor(currentFloor));
+
         window.onclick = function(event) {
             const modal = document.getElementById('roomModal');
             if (event.target == modal) {
                 modal.classList.remove('active');
             }
         }
+
+        setFloor('ground');
     </script>
 </body>
 

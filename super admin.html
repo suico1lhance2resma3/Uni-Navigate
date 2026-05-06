@@ -9,85 +9,210 @@
 </head>
 <body class="superadmin-page">
     <nav>
+        <div class="nav-left">
+            <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo">
+            <a href="#" id="logout-btn" class="logout-link">Logout</a>
+        </div>
         <ul>
-            <li><a href="#" id="logout-btn" class="logout-link">Logout</a></li>
             <li><a href="Home.html">Campus Navigate</a></li>
             <li><a href="https://fatima.edu.ph/">OLFU</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
-    <div class="sidebar">
-        <ul>
-            <li><button>Food</button></li>
-            <li><button>Vacant Rooms</button></li>
-            <li><button>Building Information</button></li>
-            <li><button>Super Admin Panel</button></li>
-        </ul>
-    </div>
-    <div>
-        <h1> Super Admin Page</h1>
-        <p>This is the Super admin page. Only authorized users can access this page.</p>
-    </div>
-    <section class="Manageprofile">
-    <div class="profile ">
-        <p>Coures: BSEMC - 1 - Y2 - 1</p>
-        <button>Change profile</button>
-        <form>
-            <label for="newPassword">New Password:</label><br>
-            <input type="password" id="newPassword" name="newPassword" required><br><br>
-            <input type="submit" value="Change Password">
-        </form>
-        
-    </div>
-    </section>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="icon/sidebar-icon.png" alt="Sidebar Icon">
+                <span>Uni-Navigate</span>
+            </div>
+            <button class="sidebar-button"><img src="icon/food-icon.png" alt="Food" style="width:20px; height:20px;"> Food</button>
+            <button class="sidebar-button">Vacant Rooms</button>
+            <button class="sidebar-button"><img src="icon/building-icon png.png" alt="Building" style="width:20px; height:20px;"> Building Information</button>
+            <button class="sidebar-button">Super Admin Panel</button>
+        </aside>
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Super Admin Panel</h1>
+                <p>Only authorized users can access these tools.</p>
+            </header>
 
-    <section class="systemlog">
-        <div class="logheader">
-            <h2>System Log</h2>
-            <p>Here you can view the system logs.</p>
-        </div>
-        <div class="loguser">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Timestamp</th>
-                        <th>User</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2024-06-01 10:00:00</td>
-                        <td>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</td>
-                        <td>Logged in</td>
-                    </tr>
-                    <tr>
-                        <td>2024-06-01 10:00:00</td>
-                        <td>Jimboy Dipinili | BSEMC - 1 - Y2 - 1</td>
-                        <td>Logged in</td>
-                    </tr>
-                    <tr>
-                        <td>2024-06-01 10:00:00</td>
-                        <td>Kumag Barakuda | BSEMC - 1 - Y2 - 1</td>
-                        <td>Logged in</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+            <section class="dashboard-card profile-card">
+                <h2>Manage Profile</h2>
+                <p>Course: BSEMC - 1 - Y2 - 1</p>
+                <button class="primary-button">Update Profile</button>
+                <form id="superPasswordForm" class="form-card">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                    <input type="submit" value="Change Password" class="primary-button">
+                </form>
+            </section>
 
-    <section class="Reports">
-        <div class="reportheader">
-            <h2>Reports</h2>
-            <p>Here you can view the reports from developers.</p>
-        </div>
-        <div class="reportuser">
-            <p>Suico | Developer: The latest update has resolved the issues reported by users.</p>
-            <p>Labao | Developer: I have completed the new feature and it is ready for testing.</p>
-            <p>Valenzuelano | Developer: I am currently working on improving the user interface for better user experience.</p>
-        </div>
-    </section>
+            <section class="dashboard-card systemlog-card">
+                <h2>System Log</h2>
+                <p>Review recent system activity.</p>
+                <div class="log-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>User</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-06-01 10:00:00</td>
+                                <td>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</td>
+                                <td>Logged in</td>
+                            </tr>
+                            <tr>
+                                <td>2024-06-01 10:05:00</td>
+                                <td>Jimboy Dipinili | BSEMC - 1 - Y2 - 1</td>
+                                <td>Viewed schedule</td>
+                            </tr>
+                            <tr>
+                                <td>2024-06-01 10:10:00</td>
+                                <td>Kumang Barakuda | BSEMC - 1 - Y2 - 1</td>
+                                <td>Sent feedback</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="dashboard-card reports-card">
+                <h2>Reports</h2>
+                <div class="feedback-entry">
+                    <p><strong>Suico | Developer:</strong> The latest update has resolved the issues reported by users.</p>
+                </div>
+                <div class="feedback-entry">
+                    <p><strong>Labao | Developer:</strong> I have completed the new feature and it is ready for testing.</p>
+                </div>
+                <div class="feedback-entry">
+                    <p><strong>Valenzuelano | Developer:</strong> I am currently working on improving the user interface for better user experience.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Handle sidebar buttons
+        document.querySelectorAll('.sidebar-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const text = this.textContent;
+                const main = document.querySelector('.dashboard-main');
+                if (text === 'Super Admin Panel') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Super Admin Panel</h1>
+                            <p>Only authorized users can access these tools.</p>
+                        </header>
+                        <section class="dashboard-card profile-card">
+                            <h2>Manage Profile</h2>
+                            <p>Course: BSEMC - 1 - Y2 - 1</p>
+                            <button class="primary-button">Update Profile</button>
+                            <form id="superPasswordForm" class="form-card">
+                                <label for="newPassword">New Password:</label>
+                                <input type="password" id="newPassword" name="newPassword" required>
+                                <input type="submit" value="Change Password" class="primary-button">
+                            </form>
+                        </section>
+                        <section class="dashboard-card systemlog-card">
+                            <h2>System Log</h2>
+                            <p>Review recent system activity.</p>
+                            <div class="log-table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>User</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2024-06-01 10:00:00</td>
+                                            <td>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</td>
+                                            <td>Logged in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024-06-01 10:05:00</td>
+                                            <td>Jimboy Dipinili | BSEMC - 1 - Y2 - 1</td>
+                                            <td>Viewed schedule</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024-06-01 10:10:00</td>
+                                            <td>Kumang Barakuda | BSEMC - 1 - Y2 - 1</td>
+                                            <td>Sent feedback</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section class="dashboard-card reports-card">
+                            <h2>Reports</h2>
+                            <div class="feedback-entry">
+                                <p><strong>Suico | Developer:</strong> The latest update has resolved the issues reported by users.</p>
+                            </div>
+                            <div class="feedback-entry">
+                                <p><strong>Labao | Developer:</strong> I have completed the new feature and it is ready for testing.</p>
+                            </div>
+                            <div class="feedback-entry">
+                                <p><strong>Valenzuelano | Developer:</strong> I am currently working on improving the user interface for better user experience.</p>
+                            </div>
+                        </section>
+                    `;
+                    // Re-init the password form handler
+                    const passwordForm = document.getElementById('superPasswordForm');
+                    if (passwordForm) {
+                        passwordForm.addEventListener('submit', function(event) {
+                            event.preventDefault();
+                            alert('Password changed successfully.');
+                            passwordForm.reset();
+                        });
+                    }
+                } else if (text === 'Food') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Food Showcase</h1>
+                            <p>Campus dining options.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_caten.jpg" alt="Food"><p>Campus dining and food options.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_Kaliham.jpg" alt="Food"><p>Food feature layout for campus visitors.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Tam_back_food.jpg" alt="Food"><p>Comfortable dining spaces near campus buildings.</p></div>
+                        </div>
+                    `;
+                } else if (text === 'Vacant Rooms') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Vacant Rooms</h1>
+                            <p>Currently available rooms: 503 and 505.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/503_MusicRoom.jpg" alt="Room 503"><p>Room 503 - Available</p></div>
+                            <div class="content-card"><span>No image available</span><p>Room 505 - Available</p></div>
+                        </div>
+                    `;
+                } else if (text === 'Building Information') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Building Information</h1>
+                            <p>Explore the Tamaraw Building.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance"><p>Main entrance and facility overview.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/Tam_5th_hallway.jpg" alt="5th Floor Hallway"><p>Hallway and room layout for the 5th floor.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Ground Floor"><p>Ground floor building view.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab"><p>Academic spaces and labs.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/501_door.jpg" alt="5th Floor Room"><p>Sample room door from the 5th floor.</p></div>
+                        </div>
+                    `;
+                }
+            });
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 UNI-NAVIGATE Super Admin Panel. All rights reserved.</p>

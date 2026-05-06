@@ -9,55 +9,157 @@
 </head>
 <body class="admin-page">
     <nav>
+        <div class="nav-left">
+            <img src="logo/Uni-Navigate_logo.png" alt="Uni-Navigate Logo">
+            <a href="#" id="logout-btn" class="logout-link">Logout</a>
+        </div>
         <ul>
-            <li><a href="#" id="logout-btn" class="logout-link">Logout</a></li>
             <li><a href="Home.html">Campus Navigate</a></li>
             <li><a href="https://fatima.edu.ph/">OLFU</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
-    <div class="sidebar">
-        <ul>
-            <li><button>Food</button></li>
-            <li><button>Vacant Rooms</button></li>
-            <li><button>Building Information</button></li>
-            <li><button>Admin Panel</button></li>
-        </ul>
-    </div>
-    <div>
-        <h1>Admin Page</h1>
-        <p>This is the admin page. Only authorized users can access this page.</p>
-    </div>
-    <section class="Manageprofile">
-    <div class="profile ">
-        <p>Coures: BSEMC - 1 - Y2 - 1</p>
-        <button>Change profile</button>
-    </div>
-    </section>
-    <section class="analytic">
-        <div class="analyticheader">
-            <h2>Analytic</h2>
-            <p>Here you can view the analytics of the website.</p>
-            <div class="top user">
-                <p>Top User</p>
-                <p>Sean Valenzuelano | BSEMC - 1 - Y2 - 1</p>
-                <!-- Add graphic or data here -->
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="icon/sidebar-icon.png" alt="Sidebar Icon">
+                <span>Uni-Navigate</span>
             </div>
-        </div>
-    </section>
+            <button class="sidebar-button"><img src="icon/food-icon.png" alt="Food" style="width:20px; height:20px;"> Food</button>
+            <button class="sidebar-button">Vacant Rooms</button>
+            <button class="sidebar-button"><img src="icon/building-icon png.png" alt="Building" style="width:20px; height:20px;"> Building Information</button>
+            <button class="sidebar-button">Admin Panel</button>
+        </aside>
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Admin Panel</h1>
+                <p>Only authorized users can access these tools.</p>
+            </header>
 
-    <section class="readfeedback">
-        <div class="feedback">
-            <h2>Feedback</h2>
-            <p>Here you can read the feedback from users.</p>
-        </div>
-        <div class="feedbackuser">
-            <p>Sean Valenzuelano : I love this website! It helps me navigate the campus easily.</p>
-            <p>Jimboy Dipinili: Nawawala po yung cellphone ko 😭</p>
-            <p>Kumang Barakuda: I wish there were more features, but overall it's great!</p>
-        </div>
-    </section>
+            <section class="dashboard-card profile-card">
+                <h2>Manage Profile</h2>
+                <p>Course: BSEMC - 1 - Y2 - 1</p>
+                <button class="primary-button">Edit Profile</button>
+            </section>
+
+            <section class="dashboard-card analytics-card">
+                <h2>Analytics</h2>
+                <p>Most user courses are shown here.</p>
+                <div class="analytic-graph">
+                    <div class="graph-row"><span>BSEMC</span><div class="graph-bar" style="width: 70%"></div></div>
+                    <div class="graph-row"><span>BSIT</span><div class="graph-bar" style="width: 55%"></div></div>
+                    <div class="graph-row"><span>BSCS</span><div class="graph-bar" style="width: 40%"></div></div>
+                </div>
+                <div class="top-user">
+                    <p><strong>Top user:</strong> Sean Valenzuelano | BSEMC - 1 - Y2 - 1</p>
+                </div>
+            </section>
+
+            <section class="dashboard-card feedback-card">
+                <h2>User Feedback</h2>
+                <div class="feedback-entry">
+                    <p><strong>Sean Valenzuelano</strong></p>
+                    <p>I love this website! It helps me navigate the campus easily.</p>
+                </div>
+                <div class="feedback-entry">
+                    <p><strong>Jimboy Dipinili</strong></p>
+                    <p>Nawawala po yung cellphone ko 😭</p>
+                </div>
+                <div class="feedback-entry">
+                    <p><strong>Kumang Barakuda</strong></p>
+                    <p>I wish there were more features, but overall it&apos;s great!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Handle sidebar buttons
+        document.querySelectorAll('.sidebar-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const text = this.textContent;
+                const main = document.querySelector('.dashboard-main');
+                if (text === 'Admin Panel') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Admin Panel</h1>
+                            <p>Only authorized users can access these tools.</p>
+                        </header>
+                        <section class="dashboard-card profile-card">
+                            <h2>Manage Profile</h2>
+                            <p>Course: BSEMC - 1 - Y2 - 1</p>
+                            <button class="primary-button">Edit Profile</button>
+                        </section>
+                        <section class="dashboard-card analytics-card">
+                            <h2>Analytics</h2>
+                            <p>Most user courses are shown here.</p>
+                            <div class="analytic-graph">
+                                <div class="graph-row"><span>BSEMC</span><div class="graph-bar" style="width: 70%"></div></div>
+                                <div class="graph-row"><span>BSIT</span><div class="graph-bar" style="width: 55%"></div></div>
+                                <div class="graph-row"><span>BSCS</span><div class="graph-bar" style="width: 40%"></div></div>
+                            </div>
+                            <div class="top-user">
+                                <p><strong>Top user:</strong> Sean Valenzuelano | BSEMC - 1 - Y2 - 1</p>
+                            </div>
+                        </section>
+                        <section class="dashboard-card feedback-card">
+                            <h2>User Feedback</h2>
+                            <div class="feedback-entry">
+                                <p><strong>Sean Valenzuelano</strong></p>
+                                <p>I love this website! It helps me navigate the campus easily.</p>
+                            </div>
+                            <div class="feedback-entry">
+                                <p><strong>Jimboy Dipinili</strong></p>
+                                <p>Nawawala po yung cellphone ko 😭</p>
+                            </div>
+                            <div class="feedback-entry">
+                                <p><strong>Kumang Barakuda</strong></p>
+                                <p>I wish there were more features, but overall it&apos;s great!</p>
+                            </div>
+                        </section>
+                    `;
+                } else if (text === 'Food') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Food Showcase</h1>
+                            <p>Campus dining options.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_caten.jpg" alt="Food"><p>Campus dining and food options.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Food_Kaliham.jpg" alt="Food"><p>Food feature layout for campus visitors.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Food/Tam_back_food.jpg" alt="Food"><p>Comfortable dining spaces near campus buildings.</p></div>
+                        </div>
+                    `;
+                } else if (text === 'Vacant Rooms') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Vacant Rooms</h1>
+                            <p>Currently available rooms: 503 and 505.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/503_MusicRoom.jpg" alt="Room 503"><p>Room 503 - Available</p></div>
+                            <div class="content-card"><span>No image available</span><p>Room 505 - Available</p></div>
+                        </div>
+                    `;
+                } else if (text === 'Building Information') {
+                    main.innerHTML = `
+                        <header class="page-header">
+                            <h1>Building Information</h1>
+                            <p>Explore the Tamaraw Building.</p>
+                        </header>
+                        <div class="info-grid">
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Tam_Entrance.jpg" alt="Entrance"><p>Main entrance and facility overview.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/Tam_5th_hallway.jpg" alt="5th Floor Hallway"><p>Hallway and room layout for the 5th floor.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Comlab1_door.jpg" alt="Ground Floor"><p>Ground floor building view.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/Ground_Floor/Maclab_door.jpg" alt="Maclab"><p>Academic spaces and labs.</p></div>
+                            <div class="content-card"><img src="image/TAMARAW_BUILDING/5TH_FLOOR/501_door.jpg" alt="5th Floor Room"><p>Sample room door from the 5th floor.</p></div>
+                        </div>
+                    `;
+                }
+            });
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 UNI-NAVIGATE Admin Panel. All rights reserved.</p>
